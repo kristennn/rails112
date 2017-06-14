@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @groups = Group.all
@@ -41,7 +42,7 @@ class GroupsController < ApplicationController
     flash[:alert] = "删除成功"
     redirect_to groups_path
   end
-  
+
 
   private
 
