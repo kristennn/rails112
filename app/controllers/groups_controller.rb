@@ -41,7 +41,7 @@ class GroupsController < ApplicationController
     flash[:alert] = "删除成功"
     redirect_to groups_path
   end
-  end
+  
 
   private
 
