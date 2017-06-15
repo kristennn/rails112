@@ -5,6 +5,17 @@
 <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-primary pull-right") %>
 </div>
 
+<span class="pull-right">
+<% if current_user.is_member_of?(@group) %>
+<label class="label label-success">群组成员</label>
+  <%= link_to("退出群组", quit_group_path(@group), class: "btn btn-primary", method: :post) %>
+
+<% else %>
+<label class="label label-success">不是群组成员</label>
+  <%= link_to("加入群组", join_group_path(@group), class: "btn btn-primary", method: :post)%>
+<% end %>
+</span>
+
 <table class="table">
   <thead>
     <tr>
